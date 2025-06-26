@@ -31,6 +31,6 @@ class UserSeeder extends Seeder
         ]);
 
         $admin->assignRole('admin');
-        $admin->assignRole('opd');
+        $opd->assignRole('opd');
     }
 }

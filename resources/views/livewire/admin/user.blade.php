@@ -1,4 +1,4 @@
-@section('title', 'File Management | KKS Banjarnegara')
+@section('title', 'User | KKS Banjarnegara')
 @push('bodyscripts')
     <script>
         window.addEventListener('openModalData', event => {
@@ -30,12 +30,12 @@
             <!--begin::Row-->
             <div class="row">
                 <div class="col-sm-6">
-                    <h3 class="mb-0">File</h3>
+                    <h3 class="mb-0">User</h3>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-end">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">File</li>
+                        <li class="breadcrumb-item active" aria-current="page">User</li>
                     </ol>
                 </div>
             </div>
@@ -52,12 +52,12 @@
             <div class="row">
                 <!--begin::Col-->
                 <div class="col-12">
-                    <button wire:click="addData" type="button" class="btn btn-primary mb-3">Tambah File</button>
+                    <button wire:click="addUser" type="button" class="btn btn-primary mb-3">Tambah User</button>
                 </div>
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <livewire:file-table />
+                            <livewire:user-table />
                         </div>
                     </div>
                 </div>
@@ -68,63 +68,52 @@
         <!--end::Container-->
     </div>
     <modal wire:ignore.self class="modal fade" data-bs-backdrop="static" id="dataModal">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">File Upload</h5>
+                    <h5 class="modal-title">Data User</h5>
                     <button type="button" class="btn btn-icon btn-close" wire:click="closeModal()"
                         data-bs-dismiss="modal" id="close-modal"><i class="uil uil-times fs-4 text-dark"></i></button>
                 </div>
                 <div class="modal-body">
                     <form wire:submit.prevent="store">
                         <div class="mb-3">
-                            <label for="file" class="form-label">File</label>
-                            <input type="file" class="form-control" id="file" wire:model="file"
-                                @if ($inputMode) required @endif>
-                            @error('file')
+                            <label for="name" class="form-label">Nama</label>
+                            <input type="text" class="form-control" id="name" wire:model.defer="name"
+                                placeholder="Masukkan nama lengkap" required>
+                            @error('name')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="filename" class="form-label">Nama File (Tanpa Ekstensi / Format File)</label>
-                            <input wire:model.debounce.500ms="filename" wire:change="triggerFilenameCheck"
-                                class="form-control @if ($isDuplicate) is-invalid @endif" required>
-
-                            @error('filename')
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" wire:model.defer="email"
+                                placeholder="Masukkan email" required>
+                            @error('email')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
-                            @if ($isDuplicate)
-                                <span class="text-danger">Nama file sudah digunakan. Silakan gunakan nama lain.</span>
-                            @endif
                         </div>
-                        {{-- <div class="mb-3">
-                            <label for="filename" class="form-label">Nama File (Tanpa Ekstensi / Format File)</label>
-                            <input type="text" class="form-control" id="filename" wire:model.defer="filename"
-                                required>
-                            @error('filename')
-                                <span class="text-danger">{{ $message }}</span>
-                            @enderror
-                        </div> --}}
-                        @role('admin')
-                            <div class="mb-3">
-                                <label for="opd" class="form-label">Opd</label>
-                                <select class="form-select" id="opd" wire:model.defer="opd_id" required>
-                                    <option value="">Pilih OPD</option>
-                                    @foreach ($opd as $opds)
-                                        <option value="{{ $opds->id }}">{{ $opds->nama }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        @endauth
-                        <button type="submit" class="btn btn-primary" wire:loading.attr="disabled"
-                            wire:target="file,store" @if ($isDuplicate) disabled @endif>
-                            Simpan
-                        </button>
-
+                        <div class="mb-3">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control" id="password" wire:model.defer="password"
+                                placeholder="Masukkan password" @if ($reqpassword) required @endif>
+                        </div>
+                        <div class="mb-3">
+                            <label for="role" class="form-label">Role</label>
+                            <select class="form-select" id="role" wire:model.defer="role_id" required>
+                                <option value="">Pilih role</option>
+                                @foreach ($role as $roles)
+                                    <option value="{{ $roles->name }}">{{ $roles->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
                     </form>
                 </div>
             </div>
         </div>
     </modal>
     @include('components.delete-modal')
+    <div wire:ignore x-data @editData.window="Livewire.dispatchTo('admin.user', 'editData', $event.detail.id)"></div>
+    <div wire:ignore x-data @editData.window="Livewire.dispatchTo('admin.user', 'deleteData', $event.detail.id)"></div>
 </div>

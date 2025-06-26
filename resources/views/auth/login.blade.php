@@ -2,8 +2,13 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Login | KKS Banjarnegara</title>
+    <!--begin::Primary Meta Tags-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="title" content="KKS Banjarnegara" />
+    <meta name="author" content="Dinkominfo Banjarnegara | indraksma" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/favicon.ico') }}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
