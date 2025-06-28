@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./custom-card.css";
 
 /* Preline UI */
 @import "../../node_modules/preline/variants.css";

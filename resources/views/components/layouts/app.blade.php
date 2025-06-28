@@ -24,17 +24,21 @@
             else if (isDarkOrAuto && !html.classList.contains('dark')) html.classList.add('dark');
             else if (isLightOrAuto && !html.classList.contains('light')) html.classList.add('light');
         </script>
+        
+        
 
 
     </head>
     <body>
         <x-layouts.partials.navbar />
-       
+        {{-- <x-layouts.partials.floating-news /> --}}
 
-        <main class="min-h-screen mx-auto bg-white dark:bg-black">
+        <main class="min-h-screen bg-white dark:bg-[#171717]">
            
             {{ $slot }}
         </main>
+
+        <x-layouts.partials.footer />
 
       
 
@@ -47,6 +51,6 @@
 
 
 
-
+        
     </body>
 </html>
