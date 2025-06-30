@@ -1,9 +1,12 @@
 <!-- ========== FOOTER ========== -->
-<footer class="mt-auto w-full py-10 px-4 sm:px-6 lg:px-8 mx-auto bg-[#003A7A] dark:bg-[#171717] text-white">
+<footer class="mt-auto w-full py-10 px-4 sm:px-6 lg:px-8 mx-auto bg-[#003A7A] dark:bg-neutral-800 text-white">
   <!-- Grid Brand -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-10">
-    <div class="col-span-1 flex items-start">
-      <a class="font-semibold text-xl" href="#" aria-label="Brand">KKS Banjarnegara</a>
+    <div class="col-span-1 flex justify-center sm:justify-start items-start">
+      <a href="#" class="flex items-center space-x-3" aria-label="Brand">
+        <img src="{{ asset('images/banjarnegara.png') }}" alt="Logo KKS" class="h-10 w-auto">
+        <span class="font-semibold text-xl text-white">KKS Banjarnegara</span>
+      </a>
     </div>
   </div>
 
@@ -18,64 +21,35 @@
 
       <!-- Social Icons -->
       <div class="flex justify-center sm:justify-end space-x-4">
-        <!-- Twitter -->
-        <a href="#" aria-label="Twitter" class="text-white/60 hover:text-white transition">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334
-              0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542
-              a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0
-              1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286
-              0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429
-              3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1
-              .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218
-              3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057
-              3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1
-              .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0
-              5.026 15z"/>
+        
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/kabupatenbanjarnegara/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="text-white/80 hover:text-white transition">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2zm0 1.5A4.25 4.25 0 0 0 3.5 7.75v8.5A4.25 4.25 0 0 0 7.75 20.5h8.5A4.25 4.25 0 0 0 20.5 16.25v-8.5A4.25 4.25 0 0 0 16.25 3.5h-8.5zm4.25 3.25a5.5 5.5 0 1 1 0 11a5.5 5.5 0 0 1 0-11zm0 1.5a4 4 0 1 0 0 8a4 4 0 0 0 0-8zm5.25-.75a.75.75 0 1 1 0 1.5a.75.75 0 0 1 0-1.5z"/>
           </svg>
         </a>
 
-        <!-- GitHub -->
-        <a href="#" aria-label="GitHub" class="text-white/60 hover:text-white transition">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54
-              2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
-              0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94
-              -.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53
-              .63-.01 1.08.58 1.23.82.72 1.21 1.87.87
-              2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
-              0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12
-              0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27
-              .68 0 1.36.09 2 .27 1.53-1.04 2.2-.82
-              2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27
-              .82 2.15 0 3.07-1.87 3.75-3.65 3.95
-              .29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2
-              0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+        <!-- TikTok -->
+        <a href="https://www.tiktok.com/@pemkabbanjarnegara" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="text-white/80 hover:text-white transition">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2h2.5a5 5 0 0 0 5 5v2a6.97 6.97 0 0 1-4-1.2v7.7a5.5 5.5 0 1 1-5.5-5.5c.34 0 .67.03 1 .1V12a2.5 2.5 0 1 0 2.5 2.5V2z"/>
           </svg>
         </a>
 
-        <!-- Dribbble -->
-        <a href="#" aria-label="Dribbble" class="text-white/60 hover:text-white transition">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M3.362 10.11c0 .926-.756 1.681-1.681
-              1.681S0 11.036 0 10.111C0 9.186.756 8.43
-              1.68 8.43h1.682v1.68zm.846 0c0-.924.756-1.68
-              1.681-1.68s1.681.756 1.681 1.68v4.21c0 .924-.756
-              1.68-1.68 1.68a1.685 1.685 0 0 1-1.682-1.68v-4.21zM5.89
-              3.362c-.926 0-1.682-.756-1.682-1.681S4.964 0
-              5.89 0s1.68.756 1.68 1.68v1.682H5.89zm0 .846c.924
-              0 1.68.756 1.68 1.681S6.814 7.57 5.89 7.57H1.68C.757
-              7.57 0 6.814 0 5.89c0-.926.756-1.682 1.68-1.682h4.21zm6.749
-              1.682c0-.926.755-1.682 1.68-1.682.925 0 1.681.756
-              1.681 1.681s-.756 1.681-1.68 1.681h-1.681V5.89zm-.848
-              0c0 .924-.755 1.68-1.68 1.68A1.685 1.685 0 0 1
-              8.43 5.89V1.68C8.43.757 9.186 0 10.11 0c.926 0
-              1.681.756 1.681 1.68v4.21zm-1.681 6.748c.926 0
-              1.682.756 1.682 1.681S11.036 16 10.11 16s-1.681-.756-1.681-1.68v-1.682h1.68zm0-.847c-.924 0-1.68-.755-1.68-1.68
-              0-.925.756-1.681 1.68-1.681h4.21c.924 0
-              1.68.756 1.68 1.68 0 .926-.756 1.681-1.68 1.681h-4.21z"/>
+        <!-- YouTube -->
+        <a href="https://www.youtube.com/@dinkominfobanjarnegara" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="text-white/80 hover:text-white transition">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M10 15.5l6-3.5l-6-3.5v7zm-8-3.5c0-2.1.2-3.2.4-3.8c.2-.6.6-1.2 1.2-1.4C4.6 6.5 8 6.5 12 6.5s7.4 0 8.4.3c.6.2 1 .8 1.2 1.4c.2.6.4 1.7.4 3.8s-.2 3.2-.4 3.8c-.2.6-.6 1.2-1.2 1.4c-1 .3-4.4.3-8.4.3s-7.4 0-8.4-.3c-.6-.2-1-.8-1.2-1.4C2.2 15.7 2 14.6 2 12.5z"/>
           </svg>
         </a>
+
+        <!-- X (Twitter baru) -->
+        <a href="https://x.com/pemkab_bna" target="_blank" rel="noopener noreferrer" aria-label="X" class="text-white/80 hover:text-white transition">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20.69 3H17.3l-4.3 5.4L8 3H3.3l6.9 9.3L3 21h3.4l4.7-5.9l5 5.9h4.6l-7.2-9.1L20.7 3z"/>
+          </svg>
+        </a>
+
       </div>
     </div>
   </div>

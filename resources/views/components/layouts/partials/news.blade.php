@@ -7,9 +7,8 @@
 						<span class="flex-shrink-0 w-2 h-2 uppercase rounded-full bg-violet-400 dark:bg-violet-600"></span>
 						<span class="text-xs font-bold tracking-wider uppercase">Exclusive</span>
 					</h3>
-					<a rel="noopener noreferrer" href="#" class="font-serif hover:underline">Donec sed elit quis odio mollis dignissim eget et nulla.</a>
-					<p class="text-xs ">47 minutes ago by
-						<a rel="noopener noreferrer" href="#" class="hover:underline text-violet-400 dark:text-violet-600">Leroy Jenkins</a>
+					<a rel="noopener noreferrer" href="#" class="font-serif hover:underline">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga veniam culpa ex.</a>
+					<p class="text-xs ">47 minutes ago 
 					</p>
 				</div>
 				<div class="flex flex-col space-y-2">
@@ -17,9 +16,8 @@
 						<span class="flex-shrink-0 w-2 h-2 uppercase rounded-full bg-violet-400 dark:bg-violet-600"></span>
 						<span class="text-xs font-bold tracking-wider uppercase">Exclusive</span>
 					</h3>
-					<a rel="noopener noreferrer" href="#" class="font-serif hover:underline">Ut fermentum nunc quis ipsum laoreet condimentum.</a>
-					<p class="text-xs ">2 hours ago by
-						<a rel="noopener noreferrer" href="#" class="hover:underline text-violet-400 dark:text-violet-600">Leroy Jenkins</a>
+					<a rel="noopener noreferrer" href="#" class="font-serif hover:underline">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur, reiciendis deleniti.</a>
+					<p class="text-xs ">2 hours ago
 					</p>
 				</div>
 				<div class="flex flex-col space-y-2">
@@ -27,9 +25,8 @@
 						<span class="flex-shrink-0 w-2 h-2 uppercase rounded-full bg-violet-400 dark:bg-violet-600"></span>
 						<span class="text-xs font-bold tracking-wider uppercase">Exclusive</span>
 					</h3>
-					<a rel="noopener noreferrer" href="#" class="font-serif hover:underline">Nunc nec ipsum lobortis, pulvinar neque sed.</a>
-					<p class="text-xs ">4 hours ago by
-						<a rel="noopener noreferrer" href="#" class="hover:underline text-violet-400 dark:text-violet-600">Leroy Jenkins</a>
+					<a rel="noopener noreferrer" href="#" class="font-serif hover:underline">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolor, nihil?</a>
+					<p class="text-xs ">4 hours ago
 					</p>
 				</div>
 			</div>
@@ -37,7 +34,7 @@
 				<div class="flex w-full h-1 bg-opacity-10 bg-violet-400 dark:bg-violet-600">
 					<div class="w-1/2 h-full bg-violet-400 dark:bg-violet-600"></div>
 				</div>
-				<a rel="noopener noreferrer" href="#" class="flex items-center justify-between w-full">
+				<a rel="noopener noreferrer" href="#" class="flex items-center justify-between w-full">	
 					<span class="text-xs font-bold tracking-wider uppercase">See more exclusives</span>
 					<svg viewBox="0 0 24 24" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" class="w-4 stroke-current text-violet-400 dark:text-violet-600">
 						<line x1="5" y1="12" x2="19" y2="12"></line>
@@ -47,7 +44,7 @@
 			</div>
 		</div>
 		<div class="relative flex col-span-12 bg-gray-500 dark:bg-gray-500 bg-center bg-no-repeat bg-cover xl:col-span-6 lg:col-span-5 md:col-span-9 min-h-96" style="background-image: url('https://source.unsplash.com/random/239x319');">
-			<span class="absolute px-1 pb-2 text-xs font-bold uppercase border-b-2 left-6 top-6 text-gray-100 dark:text-gray-800 border-violet-400 dark:border-violet-600">paris, france</span>
+			<span class="absolute px-1 pb-2 text-xs font-bold uppercase border-b-2 left-6 top-6 text-gray-100 dark:text-gray-800 border-violet-400 dark:border-violet-600">banjarnegara, jawa tengah</span>
 			<a class="flex flex-col items-center justify-end p-6 text-center sm:p-8 group dark:via- flex-grow-1 bg-gradient-to-b from-gray-900 dark:from-gray-50 to-gray-900 dark:to-gray-50">
 				<span class="flex items-center mb-4 space-x-2 text-violet-400 dark:text-violet-600">
 					<span class="relative flex-shrink-0 w-2 h-2 rounded-full bg-violet-400 dark:bg-violet-600">
@@ -55,7 +52,7 @@
 					</span>
 					<span class="text-sm font-bold">Live</span>
 				</span>
-				<h1 rel="noopener noreferrer" href="#" class="font-serif text-2xl font-semibold group-hover:underline text-gray-100 dark:text-gray-800">Morbi mattis justo est, ac consectetur dui eleifend vitae. Donec venenatis?</h1>
+				<h1 rel="noopener noreferrer" href="#" class="font-serif text-2xl font-semibold group-hover:underline text-gray-100 dark:text-gray-800">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet alias expedita atque nisi?</h1>
 			</a>
 		</div>
 		<div class="hidden py-2 xl:col-span-3 lg:col-span-4 md:hidden lg:block">
@@ -69,7 +66,7 @@
                         aria-controls="news-tabpanel-latest"
                         role="tab"
                         aria-selected="true">
-                        Latest
+                        Terbaru
                     </button>
                     <button type="button"
                         id="news-tab-popular"

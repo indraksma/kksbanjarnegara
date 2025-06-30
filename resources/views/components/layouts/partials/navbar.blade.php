@@ -1,7 +1,7 @@
 
-<header class="sticky top-0 z-50 flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-blue-800 text-sm py-3 dark:bg-neutral-800">
+<header class="sticky top-0 z-50 flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-3 dark:bg-neutral-800 shadow-sm">
   <nav class="max-w-[85rem] w-full mx-auto px-4 flex flex-wrap basis-full items-center justify-between">
-    <a class="flex-none text-xl font-semibold text-white dark:text-white focus:outline-hidden focus:opacity-80" href="{{ route('homepage') }}" wire:navigate aria-label="Brand">
+    <a class="flex-none text-xl font-semibold text-neutral dark:text-white focus:outline-hidden focus:opacity-80" href="{{ route('homepage') }}" wire:navigate aria-label="Brand">
       <span class="inline-flex items-center gap-x-2 text-xl font-semibold dark:text-white">
         <img class="h-9" src="{{ asset('images/banjarnegara.png') }}" alt="Logo">
         KKS Banjarnegara
@@ -14,7 +14,7 @@
         <span class="sr-only">Toggle</span>
       </button>
     
-      <button type="button" class="hs-dark-mode-active:hidden block hs-dark-mode font-medium text-white rounded-full hover:bg-gray-200 hover:text-gray-900 focus:outline-hidden focus:bg-gray-200 dark:text-neutral-200 dark:hover:bg-gray-200 dark:focus:bg-neutral-800" data-hs-theme-click-value="dark">
+      <button type="button" class="hs-dark-mode-active:hidden block hs-dark-mode font-medium text-neutral rounded-full hover:bg-gray-200 hover:text-gray-900 focus:outline-hidden focus:bg-gray-200 dark:text-neutral-200 dark:hover:bg-gray-200 dark:focus:bg-neutral-800" data-hs-theme-click-value="dark">
         <span class="group inline-flex shrink-0 justify-center items-center size-9">
           <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
@@ -37,7 +37,7 @@
         </span>
       </button>
       @guest
-        <a href="{{ route('login') }}" wire:navigate class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-300 bg-blue-850 text-white shadow-2xs hover:bg-gray-50 hover:text-gray-900 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-100 dark:focus:bg-neutral-700 cursor-pointer">
+        <a href="{{ route('login') }}" wire:navigate class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-300 bg-blue-850 text-neutral shadow-2xs hover:bg-gray-50 hover:text-gray-900 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-100 dark:focus:bg-neutral-700 cursor-pointer">
           LOGIN
         </a>
       @endguest
@@ -45,7 +45,7 @@
       @auth
         <form method="POST" action="{{ route('logout') }}">
           @csrf
-          <button type="submit" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 text-white hover:text-gray-900 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 cursor-pointer">
+          <button type="submit" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 text-neutral hover:text-gray-900 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 cursor-pointer">
             LOGOUT
           </button>
         </form>
@@ -54,8 +54,8 @@
     </div>
     <div id="hs-navbar-alignment" class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:grow-0 sm:basis-auto sm:block sm:order-2" aria-labelledby="hs-navbar-alignment-collapse">
       <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:mt-0 sm:ps-5">
-        <a class="font-medium text-white hover:text-gray-200 focus:outline-hidden focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500" href="{{ route('profile') }}" wire:navigate>Profil</a>
-        <a class="font-medium text-white hover:text-gray-200 focus:outline-hidden focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500" href="{{ route('kelembagaan') }}" wire:navigate>Kelembagaan</a>
+        <a class="font-medium text-neutral hover:underline focus:outline-hidden focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500" href="{{ route('profile') }}" wire:navigate>Profil</a>
+        <a class="font-medium text-neutral hover:underline focus:outline-hidden focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500" href="{{ route('kelembagaan') }}" wire:navigate>Kelembagaan</a>
       </div>
     </div>
     
