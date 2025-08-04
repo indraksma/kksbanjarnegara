@@ -109,6 +109,13 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{ route('berita') }}"
+                                class="nav-link {{ request()->routeIs('berita') ? 'active' : '' }}">
+                                <i class="nav-icon bi bi-newspaper"></i>
+                                <p>Berita</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ route('files') }}"
                                 class="nav-link {{ request()->routeIs('files') ? 'active' : '' }}">
                                 <i class="nav-icon bi bi-archive"></i>

@@ -4,17 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Step extends Model
+class Berita extends Model
 {
     protected $guarded = [];
 
-    public function beritas()
+    public function step()
     {
-        return $this->hasMany(Berita::class);
+        return $this->belongsTo(Step::class);
     }
 
     public function indikator()
     {
-        return $this->hasMany(Indikator::class);
+        return $this->belongsTo(Indikator::class);
     }
 }
