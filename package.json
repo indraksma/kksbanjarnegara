@@ -16,6 +16,7 @@
     },
     "dependencies": {
         "preline": "^3.1.0",
-        "sweetalert2": "^11.22.1"
+        "sweetalert2": "^11.22.1",
+        "trix": "^2.1.15"
     }
 }

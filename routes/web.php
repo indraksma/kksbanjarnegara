@@ -1,8 +1,15 @@
 <?php
 
 
+
 use App\Livewire\Pages\Home;
 use App\Livewire\Pages\News;
+
+use App\Livewire\Admin\TestDropdown;
+use App\Livewire\HomePage;
+
+use App\Livewire\Pages\Kelembagaan;
+
 use App\Livewire\Pages\Profile;
 use App\Livewire\Pages\NewsDetail;
 use Illuminate\Support\Facades\Auth;
@@ -19,6 +26,8 @@ Route::middleware('auth')->get('/home', function () {
 });
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', App\Livewire\Admin\Dashboard::class)->name('dashboard');
+    Route::get('/beritas', App\Livewire\Admin\Berita::class)->name('berita');
+    Route::get('/beritas/editor', App\Livewire\Admin\AddBerita::class)->name('berita.editor');
     Route::get('/files', App\Livewire\Admin\File::class)->name('files');
     Route::get('/reset-password', App\Livewire\Admin\ResetPassword::class)->name('reset-password');
     Route::middleware(['role:admin'])->group(function () {
