@@ -1,4 +1,4 @@
-<section class="px-5 py-10 bg-gray-100 dark:bg-[#171717] text-gray-800 dark:text-gray-100">
+<section class="px-5 py-10 bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-100 shadow-sm border-b border-gray-200 dark:border-neutral-700">
 	<div class="container grid grid-cols-12 mx-auto gap-y-6 md:gap-10">
 		<div class="flex flex-col justify-between col-span-12 py-2 space-y-8 md:space-y-16 md:col-span-3">
 			<div class="flex flex-col space-y-8 md:space-y-12">
@@ -35,7 +35,7 @@
 					<div class="w-1/2 h-full bg-violet-400 dark:bg-violet-600"></div>
 				</div>
 				<a rel="noopener noreferrer" href="#" class="flex items-center justify-between w-full">	
-					<span class="text-xs font-bold tracking-wider uppercase">See more exclusives</span>
+					<span class="text-xs font-bold tracking-wider uppercase">Lihat Berita Lainnya</span>
 					<svg viewBox="0 0 24 24" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" class="w-4 stroke-current text-violet-400 dark:text-violet-600">
 						<line x1="5" y1="12" x2="19" y2="12"></line>
 						<polyline points="12 5 19 12 12 19"></polyline>

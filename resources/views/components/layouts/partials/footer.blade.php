@@ -1,5 +1,5 @@
 <!-- ========== FOOTER ========== -->
-<footer class="mt-auto w-full py-10 px-4 sm:px-6 lg:px-8 mx-auto bg-[#003A7A] dark:bg-neutral-800 text-white">
+<footer class="mt-auto w-full py-10 px-4 sm:px-6 lg:px-8 mx-auto bg-[#003A7A] dark:bg-gray-900 text-white">
   <!-- Grid Brand -->
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 mb-10">
     <div class="col-span-1 flex justify-center sm:justify-start items-start">

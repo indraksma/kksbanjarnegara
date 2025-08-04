@@ -1,7 +1,7 @@
 
-<header class="sticky top-0 z-50 flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-3 dark:bg-neutral-800 shadow-sm">
+<header class="sticky top-0 z-50 flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-3 dark:bg-gray-900 shadow-sm border-b border-gray-200 dark:border-neutral-700">
   <nav class="max-w-[85rem] w-full mx-auto px-4 flex flex-wrap basis-full items-center justify-between">
-    <a class="flex-none text-xl font-semibold text-neutral dark:text-white focus:outline-hidden focus:opacity-80" href="{{ route('homepage') }}" wire:navigate aria-label="Brand">
+    <a class="flex-none text-xl font-semibold text-neutral dark:text-white focus:outline-hidden focus:opacity-80" href="{{ route('home') }}" wire:navigate aria-label="Brand">
       <span class="inline-flex items-center gap-x-2 text-xl font-semibold dark:text-white">
         <img class="h-9" src="{{ asset('images/banjarnegara.png') }}" alt="Logo">
         KKS Banjarnegara
@@ -53,10 +53,29 @@
 
     </div>
     <div id="hs-navbar-alignment" class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:grow-0 sm:basis-auto sm:block sm:order-2" aria-labelledby="hs-navbar-alignment-collapse">
-      <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:mt-0 sm:ps-5">
-        <a class="font-medium text-neutral hover:underline focus:outline-hidden focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500" href="{{ route('profile') }}" wire:navigate>Profil</a>
-        <a class="font-medium text-neutral hover:underline focus:outline-hidden focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500" href="{{ route('kelembagaan') }}" wire:navigate>Kelembagaan</a>
+      <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:mt-0 sm:ps-2">  
+       
+
+        <a href="{{ route('home') }}" wire:navigate
+          class="font-medium text-neutral hover:underline focus:outline-hidden focus:text-gray-400
+          dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500
+          {{ Route::is('home') ? 'underline' : '' }}">
+          Beranda
+        </a>
+        <a href="{{ route('news') }}" wire:navigate
+          class="font-medium text-neutral hover:underline focus:outline-hidden focus:text-gray-400
+          dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500
+          {{ Route::is('news') ? 'underline' : '' }}">
+          Berita
+        </a>
+         <a href="{{ route('profile') }}" wire:navigate
+          class="font-medium text-neutral hover:underline focus:outline-hidden focus:text-gray-400
+          dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500
+          {{ Route::is('profile') ? 'underline' : '' }}">
+          Kelembagaan
+        </a>
       </div>
+
     </div>
     
   </nav>
