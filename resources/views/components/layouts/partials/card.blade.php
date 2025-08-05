@@ -1,38 +1,5 @@
 <div x-data="{ selectedTatanan: null }" class=" pt-5 shadow-sm border-b border-gray-200 dark:border-neutral-700">
-  @php
-    $tatanans = collect([
-      ['no' => 1, 'judul' => 'Kehidupan Masyarakat Sehat Mandiri', 'jumlah' => 29],
-      ['no' => 2, 'judul' => 'Permukiman dan Fasilitas Umum', 'jumlah' => 22],
-      ['no' => 3, 'judul' => 'Satuan Pendidikan', 'jumlah' => 11],
-      ['no' => 4, 'judul' => 'Pasar', 'jumlah' => 13],
-      ['no' => 5, 'judul' => 'Perkantoran dan Perindustrian', 'jumlah' => 11],
-      ['no' => 6, 'judul' => 'Pariwisata', 'jumlah' => 12],
-      ['no' => 7, 'judul' => 'Transportasi dan Tertib Lalu Lintas Jalan', 'jumlah' => 11],
-      ['no' => 8, 'judul' => 'Perlindungan Sosial', 'jumlah' => 13],
-      ['no' => 9, 'judul' => 'Penanggulangan Bencana', 'jumlah' => 14],
-    ])->map(function ($tatanan) {
-        // Status
-        if ($tatanan['no'] <= 6) {
-          $status = 'Tercapai';
-        } elseif ($tatanan['no'] <= 8) {
-          $status = 'Proses';
-        } else {
-          $status = 'Belum';
-        }
-
-        // Dummy indikator
-        $indikator = [];
-        for ($i = 1; $i <= $tatanan['jumlah']; $i++) {
-          $indikator[] = [
-            'nama' => "Indikator $i",
-            'skor' => $status === 'Tercapai' ? rand(90, 100) : null,
-            'file' => $status === 'Tercapai' ? "file-bukti-$i.pdf" : null,
-          ];
-        }
-
-        return array_merge($tatanan, compact('status', 'indikator'));
-    });
-  @endphp
+  @props(['tatanans'])
 
   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-center gap-x-6 gap-y-15 max-w-7xl mx-auto p-6">
     @foreach ($tatanans as $index => $tatanan)
@@ -127,12 +94,15 @@
 
           </div>
 
+    
           <!-- Button -->
           <div class="p-6 pt-0 mt-auto">
-            <a 
-              href="{{ route('news') }}" wire:navigate
-              class="group w-full inline-flex items-center justify-center px-6 py-3 font-bold text-white rounded-lg bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 shadow-lg shadow-blue-500/30 hover:shadow-blue-500/40 transition-all duration-300 hover:-translate-y-0.5"
-            >
+              <a 
+                href="{{ route('news', ['tatanan' => $tatanan['slug']]) }}" 
+                wire:navigate
+                class="group w-full inline-flex items-center justify-center px-6 py-3 font-bold text-white rounded-lg bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-700 hover:to-blue-600 shadow-lg shadow-blue-500/30 hover:shadow-blue-500/40 transition-all duration-300 hover:-translate-y-0.5"
+              >
+
               <span class="flex items-center gap-2">
                 Selengkapnya
                 <svg viewBox="0 0 24 24" stroke="currentColor" fill="none" class="w-5 h-5 transform transition-transform group-hover:translate-x-1">
@@ -140,6 +110,7 @@
                 </svg>
               </span> 
             </a>
+
 
           </div>
 

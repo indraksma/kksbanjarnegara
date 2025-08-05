@@ -1,35 +1,30 @@
 <?php
 
-use Illuminate\Database\Migrations\Migration;
-use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Schema;
+namespace App\Livewire\Pages;
 
-return new class extends Migration
+use App\Models\Berita;
+use Livewire\Component;
+
+class HeroNews extends Component
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
+    public function render()
     {
-        Schema::create('beritas', function (Blueprint $table) {
-            $table->id();
-            $table->string('judul');
-            $table->text('isi');
-            $table->string('slug')->unique();
-            $table->string('gambar')->nullable();
-            $table->string('penulis');
-            $table->date('tanggal_publish');
-            $table->bigInteger('step_id')->nullable();
-            $table->bigInteger('indikator_id')->nullable();
-            $table->timestamps();
-        });
-    }
+        $beritas = Berita::with('step') // eager load step
+            ->latest()
+            ->take(5)
+            ->get()
+            ->map(function ($berita) {
+                return [
+                    'judul' => $berita->judul,
+                    'slug' => $berita->slug,
+                    'tanggal_publish' => $berita->tanggal_publish->format('d M Y'),
+                    'tatanan' => $berita->step?->step ?? 'Tidak diketahui',
+                    'tatanan_no' => $berita->step?->no ?? null,
+                    'tatanan_id' => $berita->step?->id ?? null,
+                    'gambar' => $berita->gambar ? asset('storage/' . $berita->gambar) : asset('images/default.jpg'),
+                ];
+            });
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        Schema::dropIfExists('beritas');
+        return view('livewire.pages.hero-news', compact('beritas'));
     }
-};
+}

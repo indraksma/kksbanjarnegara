@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', Home::class)->name('home');
 Route::get('/profil', Profile::class)->name('profile');
 Route::get('/berita', News::class)->name('news'); 
-Route::get('/berita/detail', NewsDetail::class)->name('news.detail');
+Route::get('/berita/{slug}', NewsDetail::class)->name('news.detail');
+
 
 
 Route::middleware('auth')->get('/home', function () {

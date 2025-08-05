@@ -3,33 +3,27 @@
 namespace App\Livewire\Pages;
 
 use Livewire\Component;
+use App\Models\Berita;
+use Carbon\Carbon;
 
 class HeroNews extends Component
 {
     public function render()
     {
-        $beritas = [
-            [
-                'judul' => 'Usulkan Forum Etika Global 2026, Indonesia Siap Pimpin Dialog Negara Selatan',
-                'tanggal_publish' => '2025-07-30',
-                'kategori' => 'Siaran Pers',
-                'gambar' => asset('images/images (1).jpeg'),
-            ],
-            [
-                'judul' => 'KKS Banjarnegara Kembali Raih Penghargaan Nasional',
-                'tanggal_publish' => '2025-07-28',
-                'kategori' => 'Penghargaan',
-                'gambar' => asset('images/images (2).jpeg'),
-            ],
-            [
-                'judul' => 'Rapat Koordinasi Forum Kabupaten Kota Sehat Digelar',
-                'tanggal_publish' => '2025-07-25',
-                'kategori' => 'Kegiatan',
-                'gambar' => asset('images/images (3).jpeg'),
-            ],
-        ];
+        $beritas = Berita::with('indikator.step')
+            ->latest()
+            ->take(3)
+            ->get()
+            ->map(function ($berita) {
+                return [
+                    'judul' => $berita->judul,
+                    'slug' => $berita->slug,
+                    'tanggal_publish' => Carbon::parse($berita->tanggal_publish)->format('d M Y'),
+                    'tatanan' => optional($berita->indikator?->step)->step ?? '-',
+                    'gambar' => $berita->gambar ? asset('storage/' . $berita->gambar) : asset('images/default.jpg'),
+                ];
+            });
 
         return view('livewire.pages.hero-news', compact('beritas'));
     }
-
 }

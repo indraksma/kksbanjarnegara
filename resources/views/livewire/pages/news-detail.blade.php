@@ -4,55 +4,86 @@
     <nav class="text-sm text-gray-600 dark:text-gray-400 mb-4" aria-label="Breadcrumb">
         <ol class="list-reset flex flex-wrap items-center space-x-1">
             <li>
-                <a href="/" class="hover:underline text-gray-500 dark:text-white" wire:navigate>Home</a> 
+                <a href="/" class="hover:underline text-gray-500 dark:text-white" wire:navigate>Home</a>
             </li>
             <li><span class="mx-1">/</span></li>
             <li>
                 <a href="{{ route('news') }}" class="hover:underline text-gray-500 dark:text-white" wire:navigate>Berita</a>
             </li>
-            <li><span class="mx-1">/</span></li>
-            <li>
-                <a href="{{ route('news') }}" class="hover:underline text-gray-500 dark:text-white" wire:navigate>Tatanan 2</a>
-            </li>
+
+            @if ($berita->indikator && $berita->indikator->step)
+                <li><span class="mx-1">/</span></li>
+                <li>
+                    <a href="{{ route('news') }}?tatanan={{ Str::slug($berita->indikator->step->step) }}"
+                    onclick="Livewire.navigate(this.href, { preserveScroll: true, replace: true }); return false;"
+                    class="text-gray-500 dark:text-white hover:underline">
+                        {{ $berita->indikator->step->step }}
+                    </a>
+                </li>
+            @endif
+
             <li><span class="mx-1">/</span></li>
             <li class="text-gray-800 dark:text-white font-semibold truncate max-w-[200px] md:max-w-xs lg:max-w-sm">
-                Judul Berita Dummy - Kehidupan Masyarakat Sehat Mandiri
+                {{ $berita->judul }}
             </li>
         </ol>
     </nav>
 
+
+
     <!-- Gambar Utama -->
-    <div class="w-auto h-100 mb-6">
-        <img src="https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg" alt="Gambar Utama"
-             class="w-full h-full object-cover rounded-lg shadow-md">
+    <div class="mb-6">
+        <img src="{{ asset('storage/' . $berita->gambar) }}" alt="{{ $berita->judul }}"
+            class="w-full h-[250px] md:h-[350px] object-cover rounded-lg shadow-md">
     </div>
+
 
     <!-- Judul -->
     <h1 class="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-        Judul Berita Dummy - Kehidupan Masyarakat Sehat Mandiri
+        {{ $berita->judul }}
     </h1>
 
     <!-- Meta Info -->
     <div class="text-sm text-gray-600 dark:text-gray-400 mb-6 flex items-center gap-4 flex-wrap">
-        <span>Ditulis oleh <strong>Admin</strong></span>
-        <span>Indikator: 3</span>
-        <span>Dipublikasikan: 08 Juli 2025</span>
+        <span>Ditulis oleh <strong>{{ $berita->penulis ?? 'Admin' }}</strong></span>
+
+        @if ($berita->indikator?->step)
+            <span>
+                Tatanan {{ $berita->indikator->step->no }}: 
+                <a 
+                    href="{{ route('news', ['tatanan' => Str::slug($berita->indikator->step->step)]) }}"
+                    onclick="Livewire.navigate(this.href, { preserveScroll: true, force: true }); return false;"
+                    class="text-blue-600 hover:underline dark:text-blue-400"
+                >
+                    {{ $berita->indikator->step->step }}
+                </a>
+            </span>
+        @endif
+
+        @if ($berita->indikator)
+            <span>
+                Indikator:
+                <a href="{{ route('news') }}?tatanan={{ Str::slug($berita->indikator->step->step) }}&indikator={{ $berita->indikator->id }}"
+                onclick="Livewire.navigate(this.href, { preserveScroll: true, replace: true }); return false;"
+                class="text-blue-600 hover:underline dark:text-blue-400">
+                    {{ $berita->indikator->nama }}
+                </a>
+            </span>
+        @endif
+
+
+
+        
+
+        <span>Dipublikasikan: {{ \Carbon\Carbon::parse($berita->tanggal_publish)->translatedFormat('d F Y') }}</span>
     </div>
 
+
     <!-- Isi Berita -->
-    <div class="prose text-gray-600 dark:text-gray-100 dark:prose-invert max-w-none mb-10">
-        <p>
-            Ini adalah isi lengkap dari berita dummy. Berita ini membahas mengenai kegiatan masyarakat dalam mewujudkan kehidupan sehat mandiri, termasuk pelatihan kesehatan, edukasi gizi, dan promosi PHBS.
-        </p>
-        <br>
-        <p>
-            Dalam acara ini turut hadir berbagai tokoh masyarakat, tenaga kesehatan, serta perwakilan dari OPD terkait. Tujuannya adalah membangun kesadaran masyarakat akan pentingnya perilaku hidup bersih dan sehat.
-        </p>
-        <br>
-        <p>
-            Harapannya, kegiatan ini mampu meningkatkan indeks kesehatan dan memperkuat tatanan pertama dalam penilaian KKS tahun ini.
-        </p>
+    <div class="prose dark:prose-invert max-w-none text-gray-700 dark:text-gray-100 mb-10">
+        {!! nl2br(e($berita->isi)) !!}
     </div>
+
 
     <!-- Bagikan & Kembali -->
     <div class="border-y border-gray-300 dark:border-gray-700 py-4 mt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -100,7 +131,7 @@
                         <path d="M16 12H8"></path>
                     </svg>
                 </div>
-                <span>Kembali ke List</span>
+                <span>Kembali ke Daftar Berita</span>
             </a>
         </div>
 
@@ -112,26 +143,27 @@
         <h2 class="text-2xl font-semibold text-gray-900 dark:text-white mb-6">Berita Lainnya</h2>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            @for ($i = 1; $i <= 3; $i++)
+            @foreach ($beritaLainnya as $b)
                 <div class="bg-white dark:bg-gray-800 shadow-md rounded-lg overflow-hidden hover:shadow-lg transition">
                     <div class="aspect-w-16 aspect-h-9 bg-gray-200 dark:bg-gray-700">
-                        <img src="https://source.unsplash.com/random/400x300?sig={{ $i }}&news" alt="Gambar"
-                             class="w-full h-full object-cover">
+                        <img src="{{ asset('storage/' . $b->gambar) }}" alt="Gambar"
+                            class="w-full h-full object-cover">
                     </div>
                     <div class="p-4">
-                        <h3 class="text-sm font-semibold text-gray-800 dark:text-white mb-2">
-                            Judul Berita Populer {{ $i }}
+                        <h3 class="text-sm font-semibold text-gray-800 dark:text-white mb-2 line-clamp-2">
+                            {{ $b->judul }}
                         </h3>
                         <p class="text-xs text-gray-500 dark:text-gray-400 mb-2 line-clamp-2">
-                            Ringkasan singkat dari berita populer nomor {{ $i }}. Konten ini sangat menarik dan informatif.
+                            {{ Str::limit(strip_tags($b->isi), 100) }}
                         </p>
-                        <a href="{{ route('news.detail', ['slug' => 'berita-populer-' . $i]) }}"
-                           class="text-blue-600 dark:text-blue-400 hover:underline text-sm">
+                        <a href="{{ route('news.detail', ['slug' => $b->slug]) }}" wire:navigate
+                        class="text-blue-600 dark:text-blue-400 hover:underline text-sm">
                             Baca Selengkapnya →
                         </a>
                     </div>
                 </div>
-            @endfor
+            @endforeach
         </div>
     </div>
+
 </div>
