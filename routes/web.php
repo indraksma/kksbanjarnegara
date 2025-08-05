@@ -24,6 +24,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/files', App\Livewire\Admin\File::class)->name('files');
     Route::get('/reset-password', App\Livewire\Admin\ResetPassword::class)->name('reset-password');
     Route::middleware(['role:admin'])->group(function () {
+        Route::get('/tatanan', App\Livewire\Admin\Tatanan::class)->name('tatanan');
+        Route::get('/indikator', App\Livewire\Admin\Indikator::class)->name('indikator');
         Route::get('/opd', App\Livewire\Admin\Opd::class)->name('opd');
         Route::get('/user', App\Livewire\Admin\User::class)->name('user');
     });

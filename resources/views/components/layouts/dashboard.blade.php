@@ -124,6 +124,20 @@
                         </li>
                         @role('admin')
                             <li class="nav-item">
+                                <a href="{{ route('tatanan') }}"
+                                    class="nav-link {{ request()->routeIs('tatanan') ? 'active' : '' }}">
+                                    <i class="nav-icon bi bi-database"></i>
+                                    <p>Tatanan</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="{{ route('indikator') }}"
+                                    class="nav-link {{ request()->routeIs('indikator') ? 'active' : '' }}">
+                                    <i class="nav-icon bi bi-database-fill"></i>
+                                    <p>Indikator</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
                                 <a href="{{ route('opd') }}"
                                     class="nav-link {{ request()->routeIs('opd') ? 'active' : '' }}">
                                     <i class="nav-icon bi bi-building"></i>
