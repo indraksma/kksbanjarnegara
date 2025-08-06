@@ -76,7 +76,7 @@ class News extends Component
 
     public function getBeritasProperty()
     {
-        return Berita::latest()
+        return Berita::orderBy('tanggal_publish', 'desc')
             ->when($this->filterStepId, fn($q) => $q->where('step_id', $this->filterStepId))
             ->when($this->filterIndikatorId, fn($q) => $q->where('indikator_id', $this->filterIndikatorId))
             ->when($this->search, fn($q) =>

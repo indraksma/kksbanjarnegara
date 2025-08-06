@@ -85,11 +85,12 @@
               </p>
 
               <div class="flex items-center gap-2">
-                <svg class="w-5 h-5 {{ $statusColor }}" fill="currentColor" viewBox="0 0 24 24">
-                  {!! $statusIcon !!}
+                <svg class="w-5 h-5 {{ $tatanan['statusColor'] }}" fill="currentColor" viewBox="0 0 24 24">
+                  {!! $tatanan['statusIcon'] !!}
                 </svg>
-                <span class="text-sm font-semibold {{ $statusColor }}">{{ $status }}</span>
+                <span class="text-sm font-semibold {{ $tatanan['statusColor'] }}">{{ $tatanan['status'] }}</span>
               </div>
+
             </div>
 
           </div>

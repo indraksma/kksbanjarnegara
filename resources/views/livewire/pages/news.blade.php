@@ -17,15 +17,16 @@
 
           {{-- Tombol Semua --}}
           <li>
-            <a 
-              href="{{ route('news') }}"
-              onclick="Livewire.navigate(this.href, { preserveScroll: true, replace: true }); return false;"
+            <button
+              wire:click="filterByStep(null)"
+              onclick="history.pushState(null, '', '{{ route('news') }}')"
+              wire:loading.attr="disabled"
               class="w-full text-left block px-3 py-2 rounded-lg transition duration-150 ease-in-out
                 hover:text-blue-700 dark:hover:text-blue-400 cursor-pointer
                 border-l-4 {{ is_null($filterStepId) ? 'border-blue-600 text-blue-700 dark:text-blue-400 font-semibold' : 'border-transparent' }}"
             >
               Semua
-            </a>
+            </button>
           </li>
 
           {{-- Tombol per Step --}}
@@ -144,7 +145,7 @@
               @foreach ($beritas as $berita)
                 <div class="flex flex-col bg-white dark:bg-gray-800 transition-all duration-300 overflow-hidden">
                     <a href="{{ route('news.detail', ['slug' => $berita->slug]) }}" wire:navigate class="block">
-                        <img src="{{ asset('storage/' . $berita->gambar) }}" alt="{{ $berita->judul }}" class="w-full h-50 object-cover rounded-lg">
+                        <img src="{{ asset('storage/files/' . $berita->gambar) }}" alt="{{ $berita->judul }}" class="w-full h-50 object-cover rounded-lg">
                     </a>
                     <div class="flex flex-col flex-1 py-2">
                         <h2 class="text-base font-semibold mb-2 line-clamp-2 leading-snug">

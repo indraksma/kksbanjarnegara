@@ -20,7 +20,7 @@ class HeroNews extends Component
                     'slug' => $berita->slug,
                     'tanggal_publish' => Carbon::parse($berita->tanggal_publish)->format('d M Y'),
                     'tatanan' => optional($berita->indikator?->step)->step ?? '-',
-                    'gambar' => $berita->gambar ? asset('storage/' . $berita->gambar) : asset('images/default.jpg'),
+                    'gambar' => $berita->gambar ? asset('storage/files/' . $berita->gambar) : asset('images/default.jpg'),
                 ];
             });
 
