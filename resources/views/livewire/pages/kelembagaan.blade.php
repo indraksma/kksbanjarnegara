@@ -1,3 +1,0 @@
-<div>
-    INI KELEMBAGAAN
-</div>

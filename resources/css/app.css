@@ -17,3 +17,20 @@
         "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
         "Noto Color Emoji";
 }
+
+.animated-bg {
+    background: radial-gradient(circle at center, #2563eb, #1e3a8a);
+    animation: pulse-bg 6s ease-in-out infinite;
+}
+
+@keyframes pulse-bg {
+    0% {
+        background: radial-gradient(circle at center, #2563eb, #1e3a8a);
+    }
+    50% {
+        background: radial-gradient(circle at center, #1d4ed8, #1e3a8a);
+    }
+    100% {
+        background: radial-gradient(circle at center, #2563eb, #1e3a8a);
+    }
+}

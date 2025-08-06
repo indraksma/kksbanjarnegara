@@ -1,17 +1,25 @@
 <?php
 
+
+
+use App\Livewire\Pages\Home;
+use App\Livewire\Pages\News;
+
 use App\Livewire\Admin\TestDropdown;
 use App\Livewire\HomePage;
-use App\Livewire\Page\News;
-use App\Livewire\Pages\Kelembagaan;
-use App\Livewire\Pages\Profile;
-use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 
-Route::get('/', HomePage::class)->name('homepage');
+use App\Livewire\Pages\Kelembagaan;
+
+use App\Livewire\Pages\Profile;
+use App\Livewire\Pages\NewsDetail;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', Home::class)->name('home');
 Route::get('/profil', Profile::class)->name('profile');
-Route::get('/kelembagaan', Kelembagaan::class)->name('kelembagaan');
-Route::get('/berita', News::class)->name('news');
+Route::get('/berita', News::class)->name('news'); 
+Route::get('/berita/{slug}', NewsDetail::class)->name('news.detail');
+
 
 
 Route::middleware('auth')->get('/home', function () {
