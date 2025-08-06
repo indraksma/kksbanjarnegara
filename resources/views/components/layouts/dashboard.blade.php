@@ -83,7 +83,7 @@
             <!--begin::Sidebar Brand-->
             <div class="sidebar-brand">
                 <!--begin::Brand Link-->
-                <a href="./index.html" class="brand-link">
+                <a href="{{ url('/') }}" class="brand-link">
                     <!--begin::Brand Image-->
                     <img src="{{ asset('images/banjarnegara.png') }}" alt="AdminLTE Logo"
                         class="brand-image opacity-75 shadow" />
