@@ -145,7 +145,7 @@
               @foreach ($beritas as $berita)
                 <div class="flex flex-col bg-white dark:bg-gray-800 transition-all duration-300 overflow-hidden">
                     <a href="{{ route('news.detail', ['slug' => $berita->slug]) }}" wire:navigate class="block">
-                        <img src="{{ asset('storage/files/' . $berita->gambar) }}" alt="{{ $berita->judul }}" class="w-full h-50 object-cover rounded-lg">
+                        <img src="{{ asset('storage/' . $berita->gambar) }}" alt="{{ $berita->judul }}" class="w-full h-50 object-cover rounded-lg">
                     </a>
                     <div class="flex flex-col flex-1 py-2">
                         <h2 class="text-base font-semibold mb-2 line-clamp-2 leading-snug">
