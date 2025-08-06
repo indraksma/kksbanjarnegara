@@ -31,32 +31,32 @@ class TatananIndikatorSeeder extends Seeder
         ]);
         Indikator::create([
             'step_id' => 1,
-            'no' => 1,
+            'nomor' => 1,
             'nama' => 'Indikator 1 Tatanan 1',
         ]);
         Indikator::create([
             'step_id' => 1,
-            'no' => 2,
+            'nomor' => 2,
             'nama' => 'Indikator 2 Tatanan 1',
         ]);
         Indikator::create([
             'step_id' => 2,
-            'no' => 1,
+            'nomor' => 1,
             'nama' => 'Indikator 1 Tatanan 2',
         ]);
         Indikator::create([
             'step_id' => 2,
-            'no' => 2,
+            'nomor' => 2,
             'nama' => 'Indikator 2 Tatanan 2',
         ]);
         Indikator::create([
             'step_id' => 3,
-            'no' => 1,
+            'nomor' => 1,
             'nama' => 'Indikator 1 Tatanan 3',
         ]);
         Indikator::create([
             'step_id' => 3,
-            'no' => 2,
+            'nomor' => 2,
             'nama' => 'Indikator 2 Tatanan 3',
         ]);
     }
