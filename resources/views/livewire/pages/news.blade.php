@@ -17,31 +17,38 @@
 
           {{-- Tombol Semua --}}
           <li>
-            <a 
-              href="{{ route('news') }}"
-              onclick="Livewire.navigate(this.href, { preserveScroll: true, replace: true }); return false;"
+            <button
+              wire:click="filterByStep(null)"
+              onclick="history.pushState(null, '', '{{ route('news') }}')"
+              wire:loading.attr="disabled"
               class="w-full text-left block px-3 py-2 rounded-lg transition duration-150 ease-in-out
                 hover:text-blue-700 dark:hover:text-blue-400 cursor-pointer
                 border-l-4 {{ is_null($filterStepId) ? 'border-blue-600 text-blue-700 dark:text-blue-400 font-semibold' : 'border-transparent' }}"
             >
               Semua
-            </a>
+            </button>
           </li>
 
           {{-- Tombol per Step --}}
           @foreach ($steps as $step)
+            @php
+              $slug = Str::slug($step->step);
+              $active = $filterStepId === $step->id;
+            @endphp
             <li>
-              <a 
-                href="{{ route('news', ['tatanan' => Str::slug($step->step)]) }}"
-                onclick="Livewire.navigate(this.href, { preserveScroll: true, replace: true }); return false;"
+              <button
+                wire:click="filterByStep({{ $step->id }})"
+                onclick="history.pushState(null, '', '{{ route('news', ['tatanan' => $slug]) }}')"
+                wire:loading.attr="disabled"
                 class="w-full text-left block px-3 py-2 rounded-lg transition duration-150 ease-in-out
                   hover:text-blue-700 dark:hover:text-blue-400 cursor-pointer
-                  border-l-4 {{ $filterStepId === $step->id ? 'border-blue-600 text-blue-700 dark:text-blue-400 font-semibold' : 'border-transparent' }}"
+                  border-l-4 {{ $active ? 'border-blue-600 text-blue-700 dark:text-blue-400 font-semibold' : 'border-transparent' }}"
               >
                 {{ $step->step }}
-              </a>
+              </button>
             </li>
           @endforeach
+
 
         </ul>
       </div>
