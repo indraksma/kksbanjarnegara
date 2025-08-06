@@ -33,7 +33,7 @@
 
     <!-- Gambar Utama -->
     <div class="mb-6">
-        <img src="{{ asset('storage/files/' . $berita->gambar) }}" alt="{{ $berita->judul }}"
+        <img src="{{ asset('storage/' . $berita->gambar) }}" alt="{{ $berita->judul }}"
             class="w-full h-[250px] md:h-[350px] object-cover rounded-lg shadow-md">
     </div>
 
