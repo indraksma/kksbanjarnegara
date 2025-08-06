@@ -11,6 +11,7 @@ use App\Models\Step;
 use App\Models\Indikator;
 use Livewire\Attributes\Url;
 use Livewire\WithPagination;
+use Livewire\Attributes\On;
 
 #[Lazy]
 class News extends Component
@@ -98,6 +99,19 @@ class News extends Component
     {
         $this->filterIndikatorId = $indikatorId;
         $this->resetPage();
+    }
+
+    #[On('navigateToTatanan')]
+    public function navigateToTatanan($slug)
+    {
+        $this->selectedTatananSlug = $slug;
+
+        $matched = $this->steps->first(fn($step) => Str::slug($step->step) === $slug);
+        $this->filterStepId = $matched?->id;
+        $this->filterIndikatorId = null;
+
+        $this->resetPage();
+        $this->loadIndikators();
     }
 
     #[Title('KKS Banjarnegara | Berita')]
