@@ -34,7 +34,8 @@
         integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4=" crossorigin="anonymous" />
     @livewireStyles
     @stack('headscripts')
-    @livewireTablesStyles
+    <link rel="stylesheet" href="{{ asset('rappasoft/laravel-livewire-tables/thirdparty.css') }}">
+    <link rel="stylesheet" href="{{ asset('rappasoft/laravel-livewire-tables/core.min.css') }}">
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -224,7 +225,8 @@
     <!--begin::Script-->
 
     @livewireScripts
-    @livewireTablesScripts
+    <script src="{{ asset('rappasoft/laravel-livewire-tables/thirdparty.min.js') }}"></script>
+    <script src="{{ asset('rappasoft/laravel-livewire-tables/core.min.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         Livewire.on("alert", (data) => {
@@ -246,14 +248,6 @@
                 showConfirmButton: !toast,
                 timer: toast ? 3000 : undefined,
                 timerProgressBar: toast,
-            });
-        });
-
-        document.addEventListener('livewire:initialized', () => {
-            Livewire.hook('element.updated', () => {
-                if (window.Alpine && Alpine.initTree) {
-                    Alpine.initTree(document.body);
-                }
             });
         });
     </script>
