@@ -34,7 +34,7 @@
         integrity="sha256-+uGLJmmTKOqBr+2E6KDYs/NRsHxSkONXFHUL0fy2O/4=" crossorigin="anonymous" />
     @livewireStyles
     @stack('headscripts')
-
+    @livewireTablesStyles
 </head>
 <!--end::Head-->
 <!--begin::Body-->
@@ -224,6 +224,7 @@
     <!--begin::Script-->
 
     @livewireScripts
+    @livewireTablesScripts
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
         Livewire.on("alert", (data) => {
@@ -245,6 +246,14 @@
                 showConfirmButton: !toast,
                 timer: toast ? 3000 : undefined,
                 timerProgressBar: toast,
+            });
+        });
+
+        document.addEventListener('livewire:initialized', () => {
+            Livewire.hook('element.updated', () => {
+                if (window.Alpine && Alpine.initTree) {
+                    Alpine.initTree(document.body);
+                }
             });
         });
     </script>
